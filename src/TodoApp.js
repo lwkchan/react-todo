@@ -7,7 +7,7 @@ class TodoApp extends Component {
     return (
       <div>
         <TodoForm />
-        <TodoList todos={[{id:999, text: 'text'}]}
+        <TodoList todos={[{id:999, text: 'text'}]}/>
       </div>
     );
   }
