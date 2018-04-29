@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 const TodoForm = ({addTodo}) => {
 
   let input;
@@ -17,3 +19,5 @@ const TodoForm = ({addTodo}) => {
     </div>
   );
 };
+
+export default TodoForm;
