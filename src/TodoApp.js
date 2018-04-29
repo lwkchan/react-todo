@@ -26,12 +26,17 @@ class TodoApp extends Component {
 
   addTodo(val){
     const todo = {text: val, id: window.id++};
-    axios.post(this.apiUrl, todo)
-    .then((res) => {
-      this.state.data.push(res.data);
-      this.setState({data: this.state.data})
-    });
-  }
+    if(todo.text === '')
+      alert('Cannot add blank todo')
+    else {
+      axios.post(this.apiUrl, todo)
+      .then((res) => {
+        this.state.data.push(res.data);
+        this.setState({data: this.state.data})
+      })
+      }
+    };
+
 
   handleRemove(id){
     const remainder = this.state.data.filter((todo) => {
