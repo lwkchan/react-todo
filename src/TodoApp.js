@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/todoForm'
@@ -13,12 +14,23 @@ class TodoApp extends Component {
     this.state = {
       data: []
     }
+    this.apiUrl = 'https://5ae5e18e36a18b00144e3955.mockapi.io/todos'
+  }
+
+  componentDidMount(){
+    axios.get(this.apiUrl)
+    .then((res) => {
+      this.setState({data: res.data})
+    })
   }
 
   addTodo(val){
     const todo = {text: val, id: window.id++};
-    this.state.data.push(todo);
-    this.setState({data: this.state.data});
+    axios.post(this.apiUrl, todo)
+    .then((res) => {
+      this.state.data.push(res.data);
+      this.setState({data: this.state.data})
+    });
   }
 
   handleRemove(id){
@@ -26,7 +38,10 @@ class TodoApp extends Component {
       if(todo.id !== id) return todo;
     });
 
-    this.setState({data: remainder})
+    axios.delete(this.apiUrl + '/' + id)
+    .then((res) => {
+      this.setState({data: remainder});
+    })
   }
 
   render() {
