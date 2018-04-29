@@ -47,7 +47,7 @@ class TodoApp extends Component {
   render() {
     return (
       <div>
-        <Title />
+        <Title todoCount={this.state.data.length}/>
         <TodoForm addTodo={this.addTodo.bind(this)} />
         <TodoList
            todos = {this.state.data}

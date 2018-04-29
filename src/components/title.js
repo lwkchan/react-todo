@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-const Title = () => {
+const Title = ({todoCount}) => {
   return (
     <div>
       <div>
-        <h1>to-do</h1>
+        <h1>to-do ({todoCount})</h1>
       </div>
     </div>
   );
