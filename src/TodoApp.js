@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/todoForm'
 import TodoList from './components/todoList'
@@ -40,7 +39,8 @@ class TodoApp extends Component {
 
   handleRemove(id){
     const remainder = this.state.data.filter((todo) => {
-      if(todo.id !== id) return todo;
+      if(todo.id !== id)
+        return todo;
     });
 
     axios.delete(this.apiUrl + '/' + id)
