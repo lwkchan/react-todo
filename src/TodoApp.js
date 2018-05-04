@@ -31,7 +31,7 @@ class TodoApp extends Component {
       axios.post(this.apiUrl, todo)
       .then((res) => {
         this.state.data.push(res.data);
-        this.setState({data: this.state.data})
+        this.setState({data: this.state.data}) 
       })
       }
     };
